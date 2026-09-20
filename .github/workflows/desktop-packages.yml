@@ -106,7 +106,7 @@ jobs:
         run: |
           node -e "require('node:fs').rmSync('apps/desktop/bundled-plugins', { recursive: true, force: true })"
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: bundled-plugin-snapshot
           path: apps/desktop/bundled-plugins
@@ -172,7 +172,7 @@ jobs:
         run: |
           node -e "require('node:fs').rmSync('apps/desktop/bundled-plugins', { recursive: true, force: true })"
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: bundled-plugin-snapshot
           path: apps/desktop/bundled-plugins
@@ -264,7 +264,7 @@ jobs:
             Write-Host "Reusing candidate from $($run.head_sha); intervening changes are smoke-only: $($changed -join ', ')"
           }
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: qualification-windows-x64-candidate
           path: .artifacts/desktop-windows
@@ -340,7 +340,7 @@ jobs:
         run: |
           node -e "require('node:fs').rmSync('apps/desktop/bundled-plugins', { recursive: true, force: true })"
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: bundled-plugin-snapshot
           path: apps/desktop/bundled-plugins
@@ -397,13 +397,13 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: desktop-*
           path: dist
           merge-multiple: true
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: workspace-runtime-*
           path: dist

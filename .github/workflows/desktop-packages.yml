@@ -435,7 +435,7 @@ jobs:
         if: ${{ inputs.target == 'all' && github.event_name == 'workflow_dispatch' }}
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*
+          files: dist/DeepSeek-Harness-*
           tag_name: odsh-v0.1.6-alpha.2-${{ github.sha }}
           name: DeepSeek Harness ${{ github.ref_name }} v0.1.6-alpha.2 (${{ github.sha }})
           draft: false

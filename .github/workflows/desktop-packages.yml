@@ -66,7 +66,7 @@ jobs:
         if: ${{ inputs.refresh_plugins }}
         run: pnpm run refresh:desktop:bundled-plugins
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: bundled-plugin-snapshot
           path: apps/desktop/bundled-plugins
@@ -129,7 +129,7 @@ jobs:
           .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.dmg
           .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.zip
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: desktop-macos-${{ matrix.arch }}
           path: |
@@ -138,7 +138,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: workspace-runtime-darwin-${{ matrix.arch }}
           path: |
@@ -201,7 +201,7 @@ jobs:
 
       - name: Preserve Windows candidate
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: qualification-windows-x64-candidate
           path: .artifacts/desktop-windows
@@ -285,7 +285,7 @@ jobs:
 
       - name: Preserve Windows smoke evidence
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: qualification-windows-x64-evidence
           path: .artifacts/windows-smoke-evidence
@@ -293,7 +293,7 @@ jobs:
           retention-days: 3
 
       - name: Publish qualified Windows artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: desktop-windows-x64
           path: |
@@ -301,7 +301,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: workspace-runtime-win32-x64
           path: |
@@ -354,7 +354,7 @@ jobs:
       - name: Verify packaged preset resources
         run: node apps/desktop/scripts/verify-prebuilt-profile.mjs .artifacts/desktop-linux/linux-unpacked/resources
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: desktop-linux-x64
           path: |
@@ -363,7 +363,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: workspace-runtime-linux-x64
           path: |
@@ -417,7 +417,7 @@ jobs:
         if: ${{ inputs.target == 'all' }}
         run: pnpm exec tsx apps/desktop/scripts/assemble-workspace-runtime-manifest.ts dist dist
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: desktop-checksums
           path: |

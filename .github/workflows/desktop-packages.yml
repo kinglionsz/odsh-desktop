@@ -430,3 +430,33 @@ jobs:
             dist/workspace-runtimes-*.v1.json
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish to GitHub Releases
+        if: ${{ inputs.target == 'all' && github.event_name == 'workflow_dispatch' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          tag_name: odsh-v0.1.6-alpha.2-${{ github.sha }}
+          name: DeepSeek Harness ${{ github.ref_name }} v0.1.6-alpha.2 (${{ github.sha }})
+          draft: false
+          prerelease: true
+          body: |
+            ## Build artifacts
+
+            Generated from commit [${{ github.sha }}](https://github.com/kinglionsz/odsh-desktop/commit/${{ github.sha }}).
+
+            ### Desktop installers
+            - Windows x64: `DeepSeek-Harness-windows-x64.exe`
+            - macOS ARM64: `DeepSeek-Harness-macos-arm64.dmg` / `.zip`
+            - macOS x64: `DeepSeek-Harness-macos-x64.dmg` / `.zip`
+            - Linux x64: `DeepSeek-Harness-linux-x64.deb` / `.rpm`
+
+            ### Workspace runtimes
+            - `DeepSeek-Harness-workspace-runtime-win32-x64.tar.gz`
+            - `DeepSeek-Harness-workspace-runtime-darwin-arm64.tar.gz`
+            - `DeepSeek-Harness-workspace-runtime-darwin-x64.tar.gz`
+            - `DeepSeek-Harness-workspace-runtime-linux-x64.tar.gz`
+
+            SHA-256 checksums: `SHA256SUMS`
+
+            > This is a pre-release build. Use at your own risk.

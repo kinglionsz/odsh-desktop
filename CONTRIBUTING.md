@@ -38,7 +38,7 @@ External pull requests are welcome. To keep review predictable:
 3. **Follow the repository conventions.** [AGENTS.md](AGENTS.md) is the authoritative rule set for code, documentation, and tests; [docs/development.md](docs/development.md) covers the workflow.
 4. **Run the checks that match your change** before pushing, and report which commands you ran. See [Running checks](#running-checks).
 
-Pull request titles and labels follow the repository taxonomy: one `kind/*` label, and every applicable `area/*` label. Maintainers will apply labels if you are unsure.
+Maintainers apply labels during triage; you do not need to label your own pull request.
 
 ### The plug-in ecosystem
 

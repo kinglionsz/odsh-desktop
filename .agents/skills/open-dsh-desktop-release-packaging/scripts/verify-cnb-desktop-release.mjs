@@ -13,9 +13,7 @@ export const INSTALLER_NAMES = Object.freeze([
   'DeepSeek-Harness-linux-x64.deb',
   'DeepSeek-Harness-linux-x64.rpm',
   'DeepSeek-Harness-macos-arm64.dmg',
-  'DeepSeek-Harness-macos-arm64.zip',
   'DeepSeek-Harness-macos-x64.dmg',
-  'DeepSeek-Harness-macos-x64.zip',
   'DeepSeek-Harness-windows-x64.exe',
 ])
 

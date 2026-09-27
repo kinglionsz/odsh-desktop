@@ -123,18 +123,16 @@ jobs:
       - name: Verify macOS Helper lookup regression
         run: node --test apps/desktop/scripts/smoke-macos-package.test.mjs
 
-      - name: Smoke final macOS DMG and ZIP
+      - name: Smoke final macOS DMG
         run: >-
           node apps/desktop/scripts/smoke-macos-package.mjs
           .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.dmg
-          .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.zip
 
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-macos-${{ matrix.arch }}
           path: |
             .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.dmg
-            .artifacts/desktop-macos/DeepSeek-Harness-macos-${{ matrix.arch }}.zip
           if-no-files-found: error
           retention-days: 14
 
@@ -447,8 +445,8 @@ jobs:
 
             ### Desktop installers
             - Windows x64: `DeepSeek-Harness-windows-x64.exe`
-            - macOS ARM64: `DeepSeek-Harness-macos-arm64.dmg` / `.zip`
-            - macOS x64: `DeepSeek-Harness-macos-x64.dmg` / `.zip`
+            - macOS ARM64: `DeepSeek-Harness-macos-arm64.dmg`
+            - macOS x64: `DeepSeek-Harness-macos-x64.dmg`
             - Linux x64: `DeepSeek-Harness-linux-x64.deb` / `.rpm`
 
             ### Workspace runtimes

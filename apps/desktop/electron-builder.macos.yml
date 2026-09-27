@@ -39,7 +39,8 @@ mac:
   sign: ./apps/desktop/scripts/sign-macos-adhoc.cjs
   hardenedRuntime: false
   timestamp: none
+  # The DMG is the install artifact; a second ZIP of the same app doubled every
+  # macOS download for no additional install path, so only the DMG ships.
   target:
     - dmg
-    - zip
   artifactName: DeepSeek-Harness-macos-${arch}.${ext}

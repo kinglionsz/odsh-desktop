@@ -64,8 +64,8 @@ Open DeepSeek Harness Desktop is an independently maintained community desktop d
 ### 下载与校验
 
 - Windows x64: `DeepSeek-Harness-windows-x64.exe`
-- macOS Apple Silicon: `DeepSeek-Harness-macos-arm64.dmg` or `.zip`
-- macOS Intel: `DeepSeek-Harness-macos-x64.dmg` or `.zip`
+- macOS Apple Silicon: `DeepSeek-Harness-macos-arm64.dmg`
+- macOS Intel: `DeepSeek-Harness-macos-x64.dmg`
 - Linux Debian/Ubuntu: `DeepSeek-Harness-linux-x64.deb`
 - Linux Fedora/RHEL: `DeepSeek-Harness-linux-x64.rpm`
 - 使用 `SHA256SUMS` 校验下载文件。

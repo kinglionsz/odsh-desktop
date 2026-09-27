@@ -137,22 +137,20 @@ skill=.agents/skills/open-dsh-desktop-release-packaging
   <linux-run-id>
 ```
 
-The resulting directory is flat and contains exactly these eight files:
+The resulting directory is flat and contains exactly these six files:
 
 ```text
 DeepSeek-Harness-linux-x64.deb
 DeepSeek-Harness-linux-x64.rpm
 DeepSeek-Harness-macos-arm64.dmg
-DeepSeek-Harness-macos-arm64.zip
 DeepSeek-Harness-macos-x64.dmg
-DeepSeek-Harness-macos-x64.zip
 DeepSeek-Harness-windows-x64.exe
 SHA256SUMS
 ```
 
-GitHub displays ten Release assets because it adds `Source code (zip)` and `Source code (tar.gz)` automatically. Those generated archives are not files in the local handoff directory and are not uploaded by this workflow.
+GitHub displays eight Release assets because it adds `Source code (zip)` and `Source code (tar.gz)` automatically. Those generated archives are not files in the local handoff directory and are not uploaded by this workflow.
 
-The helper requires all three runs to name the same source commit and bundled-plugin snapshot. It validates each run conclusion, exact artifact ID, expected filename, and workflow checksum; validates ZIP payloads and optionally DMGs on macOS; combines the seven checksum entries; and refuses to replace an existing release directory.
+The helper requires all three runs to name the same source commit and bundled-plugin snapshot. It validates each run conclusion, exact artifact ID, expected filename, and workflow checksum; validates DMGs on macOS; combines the five checksum entries; and refuses to replace an existing release directory.
 
 Downloads use a stable directory below the system temporary directory, keyed by repository, run IDs, and version. Before each large incomplete artifact starts or resumes, the helper measures that exact artifact's signed route against `ODSH_MIN_DOWNLOAD_MIBPS`. With `aria2c`, a monitor observes aggregate download telemetry after a 15-second warmup and exits with status 75 when it remains below the floor for 30 seconds; `ODSH_LOW_SPEED_WARMUP_SECONDS` and `ODSH_LOW_SPEED_WINDOW_SECONDS` change those windows. With `curl`, the equivalent speed floor and sustained window stop the transfer. A speed stop prints the measured condition and preserves the resumable staging directory; do not lower the floor or resume until the user chooses another network or threshold.
 

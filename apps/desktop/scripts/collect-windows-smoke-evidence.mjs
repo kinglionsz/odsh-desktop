@@ -143,9 +143,13 @@ async function inspectWindowsProcesses(platform, environment) {
     'ConvertTo-Json -InputObject $items -Compress',
   ].join('; ')
   try {
+    // The first Win32_Process query on a cold Windows runner populates the WMI
+    // repository and has been observed at 15.1s, just past a 15s boundary. The
+    // budget is a hang guard, not a performance target, so it sits well clear of
+    // the observed cold-start cost instead of racing it.
     const { stdout } = await execFileAsync(powershell, [
       '-NoLogo', '-NoProfile', '-NonInteractive', '-Command', script,
-    ], { windowsHide: true, timeout: 15_000, maxBuffer: 1024 * 1024 })
+    ], { windowsHide: true, timeout: 60_000, maxBuffer: 1024 * 1024 })
     const decoded = JSON.parse(stdout.trim() === '' ? '[]' : stdout)
     const entries = (Array.isArray(decoded) ? decoded : [decoded])
       .map(safeProcessEntry)

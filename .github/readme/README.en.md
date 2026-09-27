@@ -393,8 +393,8 @@ Download builds only from this project's [GitHub Releases](https://github.com/fl
 
 | Platform | Architecture | Release package | Status |
 | --- | --- | --- | --- |
-| macOS | Apple Silicon (`arm64`) | `DeepSeek-Harness-macos-arm64.dmg` / `.zip` | Available |
-| macOS | Intel (`x64`) | `DeepSeek-Harness-macos-x64.dmg` / `.zip` | Available |
+| macOS | Apple Silicon (`arm64`) | `DeepSeek-Harness-macos-arm64.dmg` | Available |
+| macOS | Intel (`x64`) | `DeepSeek-Harness-macos-x64.dmg` | Available |
 | Windows | `x64` | `DeepSeek-Harness-windows-x64.exe` | Available |
 | Linux | Debian / Ubuntu (`x64`) | `DeepSeek-Harness-linux-x64.deb` | Available |
 | Linux | Fedora / RHEL (`x64`) | `DeepSeek-Harness-linux-x64.rpm` | Available |

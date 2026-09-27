@@ -379,8 +379,8 @@ Codex 与 Claude Code 不再随安装包捆绑，以减小下载体积并避免�
 
 | 平台      | 架构                     | 发行包                                | 状态  |
 | ------- | ---------------------- | ---------------------------------- | --- |
-| macOS   | Apple Silicon（`arm64`） | `DeepSeek-Harness-macos-arm64.dmg` / `.zip` | 已提供 |
-| macOS   | Intel（`x64`）           | `DeepSeek-Harness-macos-x64.dmg` / `.zip`   | 已提供 |
+| macOS   | Apple Silicon（`arm64`） | `DeepSeek-Harness-macos-arm64.dmg` | 已提供 |
+| macOS   | Intel（`x64`）           | `DeepSeek-Harness-macos-x64.dmg`   | 已提供 |
 | Windows | `x64`                  | `DeepSeek-Harness-windows-x64.exe` | 已提供 |
 | Linux   | Debian / Ubuntu（`x64`） | `DeepSeek-Harness-linux-x64.deb`   | 已提供 |
 | Linux   | Fedora / RHEL（`x64`）   | `DeepSeek-Harness-linux-x64.rpm`   | 已提供 |
